@@ -1,0 +1,19 @@
+.submit {
+  font: inherit;
+  font-size: 1.5rem;
+  color: #000;
+  border: 1px solid #000;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 0 1.5rem;
+}
+
+.cancel {
+  font: inherit;
+  font-size: 1.5rem;
+  color: #fff;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  border-radius: 4px;
+  padding: 0 1.5rem;
+}
