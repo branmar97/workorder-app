@@ -2,9 +2,12 @@
 **/.svn
 **/.hg
 **/node_modules
-**/.next
+**/.next/**
+**/_next/**
+**/dist/**
+**/__tmp__/**
 **/package-lock.json
 **/.eslintrc.json
 **/.prettier.json
 **/next.config.js
-dist
+.github
