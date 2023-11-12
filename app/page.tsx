@@ -10,7 +10,7 @@ export default function Home() {
           <code className={styles.code}>app/page.tsx</code>
         </p>
         <ul>
-          <li>Pre commit test</li>
+          <li>Pre commit test again</li>
         </ul>
         <div>
           <a
