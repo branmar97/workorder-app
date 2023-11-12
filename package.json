@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "prepare": "husky install",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "14.0.2",
@@ -22,6 +22,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
     "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "typescript": "^5"
   }

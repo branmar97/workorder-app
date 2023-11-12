@@ -1,0 +1,10 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/.next
+**/package-lock.json
+**/.eslintrc.json
+**/.prettier.json
+**/next.config.js
+dist
