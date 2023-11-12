@@ -1,9 +1,9 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
     "eqeqeq": ["error", "always"],
     "curly": "error",
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "sort-imports": ["error", {
       "ignoreCase": false,
