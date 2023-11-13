@@ -15,16 +15,12 @@
   border: 3px solid #000;
 }
 
-.action-button.primary:hover {
-  opacity: 0.7;
-}
-
 .action-button.danger {
   background: red;
   color: #fff;
   border: 3px solid #000;
 }
 
-.action-button.danger:hover {
+.action-button:hover {
   opacity: 0.7;
 }
