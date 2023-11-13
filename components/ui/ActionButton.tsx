@@ -12,7 +12,7 @@ interface ActionButtonProps {
  *
  * @example
  * // Usage:
- * // <ActionButton buttonType='submit' buttonText='Submit' />
+ * // <ActionButton buttonType='primary' buttonText='Submit' onClick={handleOnClick} />
  *
  * @param {ActionButtonProps} props - React props
  * @returns {JSX.Element} - Rendered ActionButton Component
