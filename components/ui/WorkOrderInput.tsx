@@ -5,7 +5,7 @@ interface WorkOrderInputProps {
   label?: string;
   name: string;
   placeholder: string;
-  type: HTMLInputTypeAttribute;
+  type: 'number' | 'text';
 }
 
 // TODO: Add theme styles
@@ -27,7 +27,7 @@ const WorkOrderInput = ({
   placeholder
 }: WorkOrderInputProps) => {
   return (
-    <fieldset>
+    <div>
       {label && (
         <label className={classes['workorder-label']} htmlFor={name}>
           {label}
@@ -39,7 +39,7 @@ const WorkOrderInput = ({
         type={type}
         placeholder={placeholder}
       />
-    </fieldset>
+    </div>
   );
 };
 

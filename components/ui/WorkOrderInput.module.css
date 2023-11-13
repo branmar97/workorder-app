@@ -1,16 +1,34 @@
 .workorder-input {
   font-family: inherit;
   font-size: 1.25rem;
+  font-weight: 500;
   background-color: #fff;
   border: none;
   color: #000;
-  height: 2rem;
-  padding: 0.7rem 2rem;
+  height: 3rem;
+  padding: 0.7rem 0.7rem;
   border-radius: 0.5rem;
   width: 90%;
   transition: all 0.2s;
 }
 
-.workorder-label {
+.workorder-input::placeholder {
   color: #000;
+}
+
+.workorder-input:focus::placeholder {
+  color: grey;
+}
+
+.workorder-input:focus {
+  outline: none;
+}
+
+.workorder-label {
+  display: block;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #000;
+  padding-bottom: 0.7rem;
 }

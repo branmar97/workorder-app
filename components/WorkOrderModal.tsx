@@ -1,6 +1,6 @@
 import type { Dispatch, ReactNode, SetStateAction } from 'react';
-import WorkOrderButton from './ui/WorkOrderButton';
-import classes from '@/components/WordOrderModal.module.css';
+import ActionButton from './ui/ActionButton';
+import classes from '@/components/WorkOrderModal.module.css';
 
 interface WorkOrderModalProps {
   children: ReactNode;
@@ -23,16 +23,19 @@ interface WorkOrderModalProps {
  * @returns {JSX.Element} - Rendered WorkOrderModal Component
  */
 const WorkOrderModal = ({ toggleModal, children }: WorkOrderModalProps) => {
+  const handleOnClick = () => {
+    toggleModal(false);
+  };
   return (
     <>
-      <div className={classes.backdrop} onClick={() => toggleModal(false)} />
+      <div className={classes.backdrop} onClick={handleOnClick} />
       <div className={classes['workorder-modal']}>
         <div className={classes['modal-content']}>{children}</div>
         <footer className={classes.actions}>
-          <WorkOrderButton
-            buttonType='close'
+          <ActionButton
+            buttonType='primary'
             buttonText='Close'
-            onClick={toggleModal}
+            onClick={handleOnClick}
           />
         </footer>
       </div>
