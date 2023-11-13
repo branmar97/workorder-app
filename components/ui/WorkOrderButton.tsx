@@ -2,13 +2,30 @@ import classes from './WorkOrderButton.module.css';
 
 interface WorkOrderButtonProps {
   buttonText: string;
-  buttonType: 'submit' | 'cancel';
+  buttonType: 'submit' | 'cancel' | 'close';
+  onClick?: Function;
 }
-// TODO: Add theme styles and hover styles
-const WorkOrderButton = ({ buttonText, buttonType }: WorkOrderButtonProps) => {
+// TODO: Add theme styles and hover styles, create better type definition for onClick
+
+/**
+ * Functional react component for displaying button
+ *
+ * @example
+ * // Usage:
+ * // <WorkOrderButton buttonType='submit' buttonText='Submit' />
+ *
+ * @param {WorkOrderButtonProps} props - React props
+ * @returns {JSX.Element} - Rendered WorkOrderButton Component
+ */
+const WorkOrderButton = ({
+  buttonText,
+  buttonType,
+  onClick
+}: WorkOrderButtonProps) => {
   return (
     <button
       className={`${buttonType === 'submit' ? classes.submit : classes.cancel}`}
+      onClick={() => onClick && buttonType === 'close' && onClick(false)}
     >
       {buttonText}
     </button>
