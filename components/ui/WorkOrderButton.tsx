@@ -24,7 +24,11 @@ const WorkOrderButton = ({
 }: WorkOrderButtonProps) => {
   return (
     <button
-      className={`${buttonType === 'submit' ? classes.submit : classes.cancel}`}
+      className={`${
+        buttonType === 'submit' || buttonType === 'close'
+          ? classes.submit
+          : classes.cancel
+      }`}
       onClick={() => onClick && buttonType === 'close' && onClick(false)}
     >
       {buttonText}

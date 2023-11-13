@@ -2,9 +2,10 @@ import { HTMLInputTypeAttribute } from 'react';
 import classes from '@/components/ui/WorkOrderInput.module.css';
 
 interface WorkOrderInputProps {
-  type: HTMLInputTypeAttribute;
-  name: string;
   label?: string;
+  name: string;
+  placeholder: string;
+  type: HTMLInputTypeAttribute;
 }
 
 // TODO: Add theme styles
@@ -14,16 +15,30 @@ interface WorkOrderInputProps {
  *
  * @example
  * // Usage:
- * // <WorkOrderInput type='text' name='fName' label='First Name' />
+ * // <WorkOrderInput type='text' name='fName' label='First Name' placeholder='Enter your first name' />
  *
  * @param {WorkOrderInputProps} props - React props
  * @returns {JSX.Element} - Rendered WorkOrderInput Component
  */
-const WorkOrderInput = ({ type, name, label }: WorkOrderInputProps) => {
+const WorkOrderInput = ({
+  type,
+  name,
+  label,
+  placeholder
+}: WorkOrderInputProps) => {
   return (
     <fieldset>
-      {label && <label htmlFor={name}>{label}</label>}
-      <input className={classes['workorder-input']} name={name} type={type} />
+      {label && (
+        <label className={classes['workorder-label']} htmlFor={name}>
+          {label}
+        </label>
+      )}
+      <input
+        className={classes['workorder-input']}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+      />
     </fieldset>
   );
 };

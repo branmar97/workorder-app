@@ -1,13 +1,16 @@
 .workorder-input {
   font-family: inherit;
-  font-size: 2.25rem;
+  font-size: 1.25rem;
   background-color: #fff;
   border: none;
   color: #000;
-  height: 5rem;
+  height: 2rem;
   padding: 0.7rem 2rem;
   border-radius: 0.5rem;
   width: 90%;
   transition: all 0.2s;
-  margin-right: -3.25rem;
+}
+
+.workorder-label {
+  color: #000;
 }
