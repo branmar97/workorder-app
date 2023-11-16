@@ -7,7 +7,7 @@
 **/dist/**
 **/__tmp__/**
 **/package-lock.json
-**/.eslintrc.js
+**/.eslintrc.json
 **/.prettier.json
 **/next.config.js
 .github

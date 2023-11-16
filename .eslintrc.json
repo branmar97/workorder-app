@@ -3,16 +3,24 @@
   "rules": {
     "eqeqeq": ["error", "always"],
     "curly": "error",
+    "no-unused-vars": "error",
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "sort-imports": ["error", {
-      "ignoreCase": false,
-      "ignoreDeclarationSort": false,
-      "ignoreMemberSort": false,
-      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-      "allowSeparatedGroups": false
-    }],
-    "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false, "minKeys": 2}],
-    "object-curly-spacing": ["error", "never"]
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "sort-keys": [
+      "error",
+      "asc",
+      { "caseSensitive": true, "natural": false, "minKeys": 2 }
+    ],
+    "object-curly-spacing": ["error", "always"]
   }
 }
