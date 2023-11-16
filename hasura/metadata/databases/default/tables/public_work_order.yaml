@@ -1,0 +1,253 @@
+table:
+  name: work_order
+  schema: public
+object_relationships:
+  - name: address
+    using:
+      foreign_key_constraint_on: requestor_address_id
+  - name: client
+    using:
+      foreign_key_constraint_on: client_id
+  - name: lkp_urgency
+    using:
+      foreign_key_constraint_on: urgency_id
+  - name: lkp_work_order_status
+    using:
+      foreign_key_constraint_on: status_id
+  - name: user
+    using:
+      foreign_key_constraint_on: created_by
+array_relationships:
+  - name: approvers
+    using:
+      foreign_key_constraint_on:
+        column: work_order_id
+        table:
+          name: approver
+          schema: public
+  - name: work_order_assets
+    using:
+      foreign_key_constraint_on:
+        column: work_order_id
+        table:
+          name: work_order_asset
+          schema: public
+insert_permissions:
+  - role: Requestor
+    permission:
+      check:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - created_by:
+              _eq: x-hasura-user-id
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+    comment: ""
+  - role: Supervisor
+    permission:
+      check:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - created_by:
+              _eq: x-hasura-user-id
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+    comment: ""
+select_permissions:
+  - role: Approver
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - approvers:
+              _exists:
+                _table:
+                  name: approver
+                  schema: public
+                _where:
+                  user_id:
+                    _eq: x-hasura-user-id
+    comment: ""
+  - role: Auditor
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        client_id:
+          _eq: x-hasura-user-id
+    comment: ""
+  - role: Requestor
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - created_by:
+              _eq: x-hasura-user-id
+    comment: ""
+  - role: Supervisor
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        client_id:
+          _eq: x-hasura-client-id
+    comment: ""
+update_permissions:
+  - role: Approver
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - approvers:
+              _exists:
+                _table:
+                  name: approver
+                  schema: public
+                _where:
+                  user_id:
+                    _eq: x-hasura-user-id
+      check: null
+    comment: ""
+  - role: Requestor
+    permission:
+      columns:
+        - status_id
+        - urgency_id
+        - requestor_email
+        - requestor_fax
+        - requestor_name
+        - requestor_phone
+        - created_at
+        - date_completed
+        - date_started
+        - expected_completion_date
+        - expected_start_date
+        - client_id
+        - created_by
+        - requestor_address_id
+        - work_order_id
+      filter:
+        _and:
+          - client_id:
+              _eq: x-hasura-client-id
+          - created_by:
+              _eq: x-hasura-user-id
+      check: null
+    comment: ""
+  - role: Supervisor
+    permission:
+      columns: []
+      filter:
+        client_id:
+          _eq: x-hasura-client-id
+      check: null
+    comment: ""

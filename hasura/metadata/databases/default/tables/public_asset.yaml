@@ -1,0 +1,21 @@
+table:
+  name: asset
+  schema: public
+object_relationships:
+  - name: address
+    using:
+      foreign_key_constraint_on: asset_address_id
+  - name: client
+    using:
+      foreign_key_constraint_on: client_id
+  - name: lkp_asset_type
+    using:
+      foreign_key_constraint_on: asset_type_id
+array_relationships:
+  - name: work_order_assets
+    using:
+      foreign_key_constraint_on:
+        column: asset_id
+        table:
+          name: work_order_asset
+          schema: public
