@@ -1,7 +1,7 @@
 import { gql } from '@urql/next';
 
 export default gql`
-  query getClients {
+  query GetClients {
     client {
       client_id
       name
