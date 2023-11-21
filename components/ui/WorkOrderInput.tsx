@@ -1,4 +1,3 @@
-import { HTMLInputTypeAttribute } from 'react';
 import classes from '@/components/ui/WorkOrderInput.module.css';
 
 interface WorkOrderInputProps {

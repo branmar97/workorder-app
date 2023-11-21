@@ -1,7 +1,15 @@
 import Image from 'next/image';
+import urqlClient from '@/graphql/urqlClient';
+import { registerUrql } from '@urql/next/rsc';
 import styles from './page.module.css';
+import getClientsQuery from '@/graphql/queries/getClientsQuery';
 
-export default function Home() {
+
+export default async function Home() {
+  const { getClient } = registerUrql(() => urqlClient);
+  // TODO: type definitions with code gen
+  const res = await getClient().query<{ data: string[] }, any>(getClientsQuery, {});
+  console.log(res.data);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
