@@ -1,0 +1,7 @@
+table:
+  name: issue
+  schema: public
+object_relationships:
+  - name: lkp_issue_type
+    using:
+      foreign_key_constraint_on: issue_type_id

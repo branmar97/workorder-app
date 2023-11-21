@@ -1,0 +1,11 @@
+table:
+  name: lkp_asset_type
+  schema: public
+array_relationships:
+  - name: assets
+    using:
+      foreign_key_constraint_on:
+        column: asset_type_id
+        table:
+          name: asset
+          schema: public

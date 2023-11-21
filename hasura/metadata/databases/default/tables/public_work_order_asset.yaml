@@ -1,0 +1,10 @@
+table:
+  name: work_order_asset
+  schema: public
+object_relationships:
+  - name: asset
+    using:
+      foreign_key_constraint_on: asset_id
+  - name: work_order
+    using:
+      foreign_key_constraint_on: work_order_id
