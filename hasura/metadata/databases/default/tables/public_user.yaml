@@ -1,0 +1,22 @@
+table:
+  name: user
+  schema: public
+object_relationships:
+  - name: client
+    using:
+      foreign_key_constraint_on: client_id
+array_relationships:
+  - name: approvals
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: approver
+          schema: public
+  - name: work_orders
+    using:
+      foreign_key_constraint_on:
+        column: created_by
+        table:
+          name: work_order
+          schema: public

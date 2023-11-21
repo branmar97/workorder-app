@@ -1,0 +1,11 @@
+table:
+  name: lkp_work_order_status
+  schema: public
+array_relationships:
+  - name: work_orders
+    using:
+      foreign_key_constraint_on:
+        column: status_id
+        table:
+          name: work_order
+          schema: public

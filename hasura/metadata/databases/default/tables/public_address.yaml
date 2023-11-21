@@ -1,0 +1,18 @@
+table:
+  name: address
+  schema: public
+array_relationships:
+  - name: assets
+    using:
+      foreign_key_constraint_on:
+        column: asset_address_id
+        table:
+          name: asset
+          schema: public
+  - name: work_orders
+    using:
+      foreign_key_constraint_on:
+        column: requestor_address_id
+        table:
+          name: work_order
+          schema: public

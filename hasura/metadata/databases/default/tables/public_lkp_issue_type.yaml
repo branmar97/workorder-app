@@ -1,0 +1,11 @@
+table:
+  name: lkp_issue_type
+  schema: public
+array_relationships:
+  - name: issues
+    using:
+      foreign_key_constraint_on:
+        column: issue_type_id
+        table:
+          name: issue
+          schema: public
