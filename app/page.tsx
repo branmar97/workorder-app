@@ -1,7 +1,48 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
+import createClientMutation from '@/graphql/mutations/createClientMutation';
+import getClientsQuery from '@/graphql/queries/getClientsQuery';
+
+import urqlClient from '@/graphql/urqlClient';
+
+import { v4 as uuid } from 'uuid';
+
+interface Client {
+  client_id: string;
+  name: string;
+}
+
+interface InsertClientOneResponse {
+  client_id: string;
+  name: string;
+  __typename: string;
+}
+
+interface InsertClientOneInput {
+  input: {
+    client_id: string;
+    name: string;
+  };
+}
+
 export default function Home() {
+  (async function () {
+    // TODO: type definitions with code gen
+    const mutationRes = await urqlClient.mutation<
+      { insert_client_one: InsertClientOneResponse },
+      InsertClientOneInput
+    >(createClientMutation, {
+      input: {
+        client_id: uuid(),
+        name: 'test-mutation'
+      }
+    });
+    const queryRes = await urqlClient.query<Client[], {}>(getClientsQuery, {});
+    console.log(mutationRes.data);
+    console.log(queryRes.data);
+  })();
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
